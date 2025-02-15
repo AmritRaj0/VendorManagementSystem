@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub Vendor Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from center */
+            background: linear-gradient(135deg, #4A90E2, #6A3093);
+            overflow-y: auto; /* Allow scrolling */
+            padding: 30px 0; /* Add some padding for spacing */
+        }
+
+        .dashboard-container {
+            width: 1000px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4A90E2;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background: #e6f2ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #6A3093;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #4A90E2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #357ABD;
+        }
+
+        #statusDisplay, #fleetStatus {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            min-height: 80px;
+        }
+
+        .logout-btn {
+            margin-top: 30px;
+            background-color: #d9534f;
+        }
+
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h2>🚛 Sub Vendor Dashboard</h2>
+
+        <!-- Driver and Vehicle Status -->
+        <div class="section">
+            <h3>🔍 Driver and Fleet Status</h3>
+            <button onclick="fetchSubVendorData()">🔄 Refresh Status</button>
+            <div id="statusDisplay" class="info-box">Loading data...</div>
+        </div>
+
+        <!-- Assign Driver to Vehicle -->
+        <div class="section">
+            <h3>👷 Assign Driver to Vehicle</h3>
+            <input type="number" id="assignVehicleId" placeholder="Vehicle ID" required>
+            <input type="number" id="assignDriverId" placeholder="Driver ID" required>
+            <button onclick="assignDriver()">🚚 Assign Driver</button>
+        </div>
+
+        <!-- Disable Vehicle -->
+        <div class="section">
+            <h3>🛑 Disable Vehicle</h3>
+            <input type="number" id="disableVehicleId" placeholder="Vehicle ID" required>
+            <button onclick="disableVehicle()">⚠️ Disable Vehicle</button>
+        </div>
+
+        <!-- Logout Button -->
+        <button class="logout-btn" onclick="logout()">🔒 Logout</button>
+
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

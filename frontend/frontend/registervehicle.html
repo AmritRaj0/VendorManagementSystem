@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Vehicle</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4a90e2, #88d3ce);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .vehicle-container {
+            width: 500px;
+            background: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .vehicle-container h2 {
+            margin-bottom: 25px;
+            color: #4a90e2;
+        }
+
+        .vehicle-container input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .vehicle-container button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #4a90e2;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .vehicle-container button:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="vehicle-container">
+    <h2>Register Vehicle</h2>
+    <input type="number" id="vehicleId" placeholder="Enter Vehicle ID" required>
+    <input type="text" id="registrationNumber" placeholder="Enter Registration Number" required>
+    <input type="date" id="insuranceExpiry" placeholder="Enter Insurance Expiry Date" required>
+    <button onclick="registerVehicle()">Register Vehicle</button>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

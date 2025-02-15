@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Vendor Dashboard</title>
+    <style>
+        /* Dashboard Layout */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4A90E2, #6A3093);
+            color: #fff;
+        }
+
+        .dashboard-container {
+            width: 900px;
+            height: 600px;
+            border-radius: 20px;
+            overflow-y: auto;
+            background: #fff;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .dashboard-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4A90E2;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            background: #f3f6f7;
+            border: 2px solid #4A90E2;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section input,
+        .section select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .section button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4A90E2, #6A3093);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .section button:hover {
+            background: linear-gradient(135deg, #6A3093, #4A90E2);
+        }
+
+        /* Hierarchy Display */
+        #vendorHierarchy {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #fff;
+            color: #333;
+        }
+
+        #vendorHierarchy li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #vendorHierarchy li:last-child {
+            border-bottom: none;
+        }
+
+        #fleetStatus {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #e6f7ff;
+            color: #333;
+            min-height: 80px;
+            text-align: center;
+            border: 1px solid #4A90E2;
+        }
+
+        .logout-btn {
+            margin-top: 15px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #d9534f, #c9302c);
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #c9302c, #d9534f);
+        }
+
+        /* Status Indicator */
+        .status-message {
+            text-align: center;
+            color: #d9534f;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Dashboard UI -->
+<div class="dashboard-container">
+    <h2>🌐 Super Vendor Dashboard</h2>
+
+    <!-- Vendor Hierarchy Section -->
+    <div class="section">
+        <h3>📊 Vendor Hierarchy</h3>
+        <button onclick="fetchVendorHierarchy()">Refresh Hierarchy</button>
+        <ul id="vendorHierarchy">
+            <li class="status-message">🔄 Hierarchy not updated yet!</li>
+        </ul>
+    </div>
+
+    <!-- Sub Vendor Management -->
+    <div class="section">
+        <h3>👨‍💼 Manage Sub Vendors</h3>
+        <input type="text" id="subVendorName" placeholder="Enter Sub Vendor Name" required>
+        <input type="email" id="subVendorEmail" placeholder="Enter Sub Vendor Email" required>
+        <input type="password" id="subVendorPassword" placeholder="Enter Sub Vendor Password" required>
+        <button onclick="addSubVendor()">Add Sub Vendor</button>
+    </div>
+
+    <!-- Permission Management -->
+    <div class="section">
+        <h3>🔑 Manage Permissions</h3>
+        <input type="number" id="subVendorId" placeholder="Enter Sub Vendor ID" required>
+        <select id="permissionAction">
+            <option value="assign">Assign Permissions</option>
+            <option value="revoke">Revoke Permissions</option>
+        </select>
+        <input type="text" id="permissions" placeholder="Comma-separated permissions" required>
+        <button onclick="managePermissions()">Update Permissions</button>
+    </div>
+
+    <!-- Fleet & Driver Status -->
+    <div class="section">
+        <h3>🚗 Fleet & Driver Status</h3>
+        <button onclick="fetchFleetStatus()">View Fleet Status</button>
+        <div id="fleetStatus">🔄 Status not available yet!</div>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+
+</div>
+
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

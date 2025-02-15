@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Onboarding Login</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+        }
+    
+        .login-container {
+            display: flex;
+            width: 2000px;
+            height: 500px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+    
+        .image-section {
+            flex: 1;
+            background: url('mis.png') center/cover no-repeat;
+        }
+    
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+    
+        .form-section h2 {
+            margin-bottom: 35px;
+            color: #333;
+            font-weight: 700;
+        }
+    
+        .form-section form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    
+        .form-section input {
+            padding: 18px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 18px;
+            outline: none;
+            transition: 0.3s;
+        }
+    
+        .form-section input:focus {
+            border-color: #6e45e2;
+        }
+    
+        .form-section button {
+            padding: 18px;
+            background: #6e45e2;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    
+        .form-section button:hover {
+            background: #5a35c4;
+        }
+    
+        #message {
+            margin-top: 10px;
+            color: red;
+            display: none;
+        }
+    
+        .register-link {
+            margin-top: 25px;
+            font-size: 16px;
+            color: #555;
+        }
+    
+        .register-link a {
+            color: #6e45e2;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+    
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    
+        @media (max-width: 900px) {
+            .login-container {
+                flex-direction: column;
+                height: auto;
+                width: 90%;
+            }
+    
+            .image-section {
+                height: 650px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+<div class="login-container">
+    <div class="image-section"></div>
+    <div class="form-section">
+        <h2>Welcome to Vendor Onboarding</h2>
+
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message" class="hidden"></p>
+
+        <div class="register-link">
+            Don't have an account? <a href="registration.html">Register here</a>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
+

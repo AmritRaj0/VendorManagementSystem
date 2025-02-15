@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        .registration-container {
+            display: flex;
+            width: 1000px;
+            height: 550px;
+            margin: 50px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .image-section {
+            flex: 1;
+            background: url('mis.png') center/cover no-repeat;
+        }
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+            color: #fff;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+        .form-section h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .form-section form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-section input,
+        .form-section select {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .form-section input:focus {
+            outline: none;
+            border: 2px solid #fff;
+        }
+
+        .form-section button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #fff;
+            color: #6e45e2;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .form-section button:hover {
+            background: #4a35b3;
+            color: #fff;
+        }
+
+        .form-section .register-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #f1f1f1;
+        }
+
+        .form-section .register-link a {
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .vehicle-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #f3f3f3;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 50%;
+            margin-top: 5px;
+        }
+
+        .vehicle-btn:hover {
+            background: #ddd;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-container">
+    <!-- Left Image -->
+    <div class="image-section"></div>
+
+    <!-- Right Form -->
+    <div class="form-section">
+        <h2>Create Your Account</h2>
+        <form id="registrationForm">
+            <!-- Role Selection -->
+            <select id="roleSelect" onchange="toggleFields()" required>
+                <option value="">Select Role</option>
+                <option value="Super Vendor">Super Vendor</option>
+                <option value="Sub Vendor">Sub Vendor</option>
+                <option value="Driver">Driver</option>
+            </select>
+
+            <!-- Common Fields -->
+            <input type="text" id="name" placeholder="Enter Name" required>
+            <input type="email" id="email" placeholder="Enter Email" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <!-- Parent ID Field -->
+            <div id="parentIdField" class="hidden">
+                <input type="number" id="parentId" placeholder="Parent ID">
+            </div>
+
+            <!-- Driver-Specific Fields -->
+            <div id="driverFields" class="hidden">
+                <input type="text" id="licenseNumber" placeholder="License Number">
+                <input type="date" id="approvalDate" placeholder="Approval Date">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="registerUser()">Register User</button>
+
+            <!-- New Vehicle Registration Button -->
+            <button type="button" class="vehicle-btn" onclick="event.preventDefault(); goToVehiclePage();">Register a Vehicle</button>
+
+        </form>
+
+        <!-- Navigation to Login -->
+        <div class="register-link">
+            Already have an account? <a href="index.html">Login here</a>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+    function goToVehiclePage() {
+        window.location.href = 'registervehicle.html';
+    }
+</script> -->
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
